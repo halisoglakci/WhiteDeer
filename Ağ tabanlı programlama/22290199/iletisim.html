@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/iletisim.css">
+    <title>WHİTEDEER İletişim</title>
+</head>
+<body>
+    <header>
+        <h1>İletişim</h1>
+    </header>
+
+    <form action="iletisim.php" method="post">
+        <label for="ad">Ad:</label>
+        <input type="text" id="ad" name="ad" required placeholder="Adınızı giriniz.">
+
+        <label for="soyad">Soyad:</label>
+        <input type="text" id="soyad" name="soyad" required placeholder="Soyadınızı giriniz.">
+
+        <label for="email">E-Posta:</label>
+        <input type="email" id="email" name="email" required placeholder="E-mail adresinizi giriniz.">
+
+        <label for="mesaj">Mesaj:</label>
+        <textarea id="mesaj" name="mesaj" rows="4" required placeholder="Mesajınızı giriniz."></textarea>
+
+        <input type="submit" value="Gönder">
+    </form>
+
+    <a href="mesajlar.php">Gönderileri Gör</a>
+</body>
+</html>

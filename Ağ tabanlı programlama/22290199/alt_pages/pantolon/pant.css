@@ -1,0 +1,135 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #997C70;;
+}
+
+
+.logo-container {
+    text-align: center;
+}
+
+.logo-container img {
+   
+    max-width: 100%;
+    height: auto;
+    max-height: 130px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    font-size: 25px;
+}
+
+.navbarr{
+    position: sticky;
+    top: 0px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 12px ;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+.custom-card:hover{
+    transform: scale(1.05);
+    transition: linear 0.5s;
+
+}
+
+
+nav ul li a:hover {
+    color: #000000;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+ul li .btn{
+    font-weight: bold;
+    text-decoration: overline;
+}
+
+.dropdown-content {
+    display: none;
+    padding: 8px;
+    position: absolute;
+    font-size: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a{
+    margin: 0px 0px 100px 0px
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+section {
+    max-width: 800px;
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px; /* Yuvarlak köşeleri ekledik */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+     /* Yuvarlak köşelerde içeriklerin taşmasını engellemek için */
+}
+
+.image-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.image-section img {
+    width: 48%; /* Her fotoğrafın genişliğini ayarlayabilirsiniz */
+    border-radius: 8px; /* Yuvarlak köşeleri ekledik */
+    margin-bottom: 20px;
+}
+.image-section2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.image-section2 img {
+    width: 25%; /* Her fotoğrafın genişliğini ayarlayabilirsiniz */
+    border-radius: 8px; /* Yuvarlak köşeleri ekledik */
+    margin-bottom: 20px;
+}

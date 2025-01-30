@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepet</title>
+    <!-- <link rel="stylesheet" href="css/main_page.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #997C70;
+        }
+        .p-4{
+            background-color: #F7DCB9;
+            border-radius: 12px;
+        }
+        .sepetim {
+            color: black;
+            text-decoration: underline;
+            text-decoration-color: black;
+        }
+        .siparis_olustur {
+            background-color: #F7DCB9;
+            color: black;
+            margin: 10px;
+            font-weight: bold;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 " style="position: relative;" >
+            <a href="./index.html"><h1 class="h3 mx-5 mt-5 sepetim">Sepetim</h1></a>
+            <section class="p-4">
+                <table class="table p-3 m-3" id="table">
+                    <tr> 
+                        <td>#</td>
+                        <td>Name</td>
+                        <td>Price</td>
+                        <td>Action</td>
+                    </tr>
+                </table>
+            </section>
+            <div style="position: absolute; right: 13%;">
+                <button class="btn btn-outline-primary siparis_olustur">Sipariş Oluştur</button>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    
+
+    <script>
+        
+    let cart = localStorage.getItem("sepet") ? JSON.parse(localStorage.getItem("sepet")) : []
+      function displayCart() {
+        count = 0
+        cart.forEach(function(cartItem) {
+            var mytr = `
+            <tr id="liste">
+                <td>${count}</td>
+                <td>${cartItem.name}</td>
+                <td>${cartItem.fiyat}</td>
+                <td><button class="btn btn-danger">Sil</button></td>
+            </tr>
+            `
+         
+            count+= 1
+
+            document.querySelector("table").innerHTML += mytr
+            
+        });
+      }  
+
+      displayCart()
+    </script>
+
+    
+</body>
+</html>

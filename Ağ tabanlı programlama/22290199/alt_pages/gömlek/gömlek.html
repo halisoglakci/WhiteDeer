@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://127.0.0.1:5501/alt_pages/pantolon/pant.css">
+    
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        
+    </style>
+    <style>
+        .custom-card {
+            width: 23rem;
+            border: 1px solid #ddd; /* kenarlık rengi */
+            border-radius: 8px; /* köşe yuvarlama */
+            overflow: hidden; /* içerik dışına taşanları kesme */
+            margin-bottom: 20px;
+        }
+
+        .custom-card img {
+            width: 100%;
+            height: auto; /* varsayılan yükseklik */
+            object-fit: cover; /* resmi boyutlandırma */
+        }
+
+        .custom-card .card-body {
+            padding: 15px;
+            background-color: #F7DCB9;
+        }
+
+        .custom-card .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .custom-card .card-text {
+            color: #555;
+        }
+
+        .custom-card .add-to-cart {
+            background-color: #28a745; /* buton arka plan rengi */
+            color: #fff; /* buton metin rengi */
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-card .add-to-cart:hover {
+            background-color: #218838; /* hover durumunda arka plan rengi */
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container ">
+        <ul class="nav f-flex justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="C:\Users\ASUS\Desktop\22290199\index.html"><img style="width: 60px;" src="http://127.0.0.1:5501/photos/deer.png" alt=""> </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:5501/sepet.html"><svg style="size:60;" xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path opacity="1" fill="#1E3050" d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg></a>
+              </li>
+            
+          </ul>
+            <div class="row">
+            <div class="col-4">
+                <div>
+                    <ul>
+                        <li><button class="btn" onclick="ShowPants()">Tüm Gömlekler</button></li>
+                        <li><button class="btn" onclick="SelectCategory('uzunkol')">Uzun Kollu Gömlek</button></li>
+                        <li><button class="btn" onclick="SelectCategory('kısakol')">Kısa Kollu Gömlek</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-8">
+                <div id="pants" class="d-flex" style="flex-wrap: wrap; gap: 10px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    class Pants{
+      constructor(fiyat,image,name,category){
+        this.name = name    
+        this.image = image
+        this.fiyat = fiyat
+        this.category = category
+      }
+    }
+
+    const Urunler = [
+        new Pants(100,"uzun_kol1.jpg","Uzun Kollu Gömlek","uzunkol"),
+        new Pants(100,"uzun_kol2.jpg","Uzun Kollu Gömlek","uzunkol"),
+        new Pants(100,"uzun_kol3.jpg","Uzun Kollu Gömlek","uzunkol"),
+        new Pants(100,"uzun_kol4.jpg","Uzun Kollu Gömlek","uzunkol"),
+        new Pants(200,"kisa_kollu1.jpg","Kısa Kollu Gömlek","kısakol"),
+        new Pants(200,"kisa_kollu2.jpg","Kısa Kollu Gömlek","kısakol"),
+        new Pants(200,"kisa_kollu3.jpg","Kısa Kollu Gömlek","kısakol"),
+        new Pants(200,"kisa_kollu4.jpg","Kısa Kollu Gömlek","kısakol"),
+    ]
+    
+    function ShowPants(){
+        document.querySelector("#pants").innerHTML = ""
+        Urunler.forEach(item=>{
+            var html = `
+            <div class="custom-card">
+                <img src="http://127.0.0.1:5501/photos/${item.image}" alt="Product Image" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">${item.name}</h5>
+                    <p class="card-text">Price: $${item.fiyat}</p>
+                    <button class="add-to-cart addcard btn">Add to Cart</button>
+                </div>
+            </div>
+            `
+        document.querySelector("#pants").innerHTML += html
+        })
+    }
+    function SelectCategory(category){
+        document.querySelector("#pants").innerHTML = ""
+        Urunler.forEach(item=>{
+            if(item.category == category){
+                var html = `
+                <div class="custom-card">
+                    <img src="http://127.0.0.1:5501/photos/${item.image}" alt="Product Image" class="card-img-top">
+                    <div class="card-body">
+                        <div class="card-title">${item.name}</div>
+                        <div class="card-text">Price: $${item.fiyat}</div>
+                        <button class="addcard add-to-cart  btn">Add to Cart</button>
+                    </div>
+                </div>
+        `
+        document.querySelector("#pants").innerHTML += html
+            }
+        })
+    }
+    ShowPants();
+    
+    var btns = document.querySelectorAll(".addcard").forEach(btn=>{
+      btn.addEventListener("click", (e)=>{
+        console.log(e.target.parentElement)
+        var sepetitem = {
+          name : e.target.parentElement.children[0].innerHTML,
+          fiyat : e.target.parentElement.children[1].innerHTML
+        }
+        var urunlers = localStorage.getItem("sepet") ? JSON.parse(localStorage.getItem("sepet")) : []
+        urunlers.push(sepetitem)
+        localStorage.setItem("sepet", JSON.stringify(urunlers))
+      })
+    })
+    </script>
+</body>
+</html>
